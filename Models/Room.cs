@@ -1,9 +1,9 @@
 namespace OrcaApi.Models
 {
-    public class Cinema
+    public class Room
     {
         public int Id { get; set; }
+        public int? CinemaId { get; set; }
         public string? Name { get; set; }
-        public string? Location { get; set; }
     }
 }

@@ -25,18 +25,23 @@ CREATE TABLE Rooms
 (
     Id INT IDENTITY PRIMARY KEY,
     Name NVARCHAR(128) NOT NULL,
-    CinemaId INT REFERENCES Cinemas (Id)
+    CinemaId INT REFERENCES Cinemas (Id) ON DELETE CASCADE
 )
 
 -- Create Schedule table
 CREATE TABLE Schedules
 (
     Id INT IDENTITY PRIMARY KEY,
-    CinemaId INT REFERENCES Cinemas (Id),
+    CinemaId INT REFERENCES Cinemas (Id) ON DELETE CASCADE,
     RoomId INT REFERENCES Rooms (Id),
-    MovieId INT REFERENCES Movies (Id),
+    MovieId INT REFERENCES Movies (Id) ON DELETE CASCADE,
     DayOfWeek INT NOT NULL,
     StartTime DATETIME,
     EndTime DATETIME,
     TicketPrice DECIMAL
 )
+
+DROP TABLE Schedules
+DROP TABLE Rooms
+DROP TABLE Cinemas
+DROP TABLE Movies
