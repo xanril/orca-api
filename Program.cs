@@ -27,7 +27,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Orca API V1");
 });
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Welcome to Orca API!");
 
 #region  Cinemas API
 
@@ -163,7 +163,6 @@ app.MapPut("/schedule/{id}", async (OrcaDb db, Schedule updatedSchedule, int id)
 {
       var schedule = await db.Schedules.FindAsync(id);
       if (schedule is null) return Results.NotFound();
-      schedule.CinemaId = updatedSchedule.CinemaId;
       schedule.RoomId = updatedSchedule.RoomId;
       schedule.MovieId = updatedSchedule.MovieId;
       schedule.DayOfWeek = updatedSchedule.DayOfWeek;
@@ -187,6 +186,5 @@ app.MapDelete("/schedule/{id}", async (OrcaDb db, int id) =>
 });
 
 #endregion
-
 
 app.Run();
