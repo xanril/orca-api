@@ -39,8 +39,3 @@ CREATE TABLE Schedules
     EndTime DATETIME,
     TicketPrice DECIMAL
 )
-
-DROP TABLE Schedules
-DROP TABLE Rooms
-DROP TABLE Cinemas
-DROP TABLE Movies

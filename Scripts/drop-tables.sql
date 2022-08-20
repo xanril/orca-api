@@ -1,0 +1,4 @@
+DROP TABLE Schedules
+DROP TABLE Rooms
+DROP TABLE Cinemas
+DROP TABLE Movies
