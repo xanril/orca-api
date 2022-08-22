@@ -33,7 +33,7 @@ app.MapGet("/", () => "Welcome to Orca API!");
 
 app.MapGet("/cinemas", async (OrcaDb db) => await db.Cinemas.ToListAsync());
 
-app.MapPost("cinema", async (OrcaDb db, Cinema cinema) =>
+app.MapPost("/cinema", async (OrcaDb db, Cinema cinema) =>
 {
     await db.Cinemas.AddAsync(cinema);
     await db.SaveChangesAsync();
@@ -70,7 +70,7 @@ app.MapDelete("/cinema/{id}", async (OrcaDb db, int id) =>
 
 app.MapGet("/movies", async (OrcaDb db) => await db.Movies.ToListAsync());
 
-app.MapPost("movie", async (OrcaDb db, Movie movie) =>
+app.MapPost("/movie", async (OrcaDb db, Movie movie) =>
 {
     await db.Movies.AddAsync(movie);
     await db.SaveChangesAsync();
@@ -113,7 +113,7 @@ app.MapDelete("/movie/{id}", async (OrcaDb db, int id) =>
 
 app.MapGet("/rooms", async (OrcaDb db) => await db.Rooms.ToListAsync());
 
-app.MapPost("room", async (OrcaDb db, Room room) =>
+app.MapPost("/room", async (OrcaDb db, Room room) =>
 {
     await db.Rooms.AddAsync(room);
     await db.SaveChangesAsync();
@@ -150,7 +150,7 @@ app.MapDelete("/room/{id}", async (OrcaDb db, int id) =>
 
 app.MapGet("/schedules", async (OrcaDb db) => await db.Schedules.ToListAsync());
 
-app.MapPost("schedule", async (OrcaDb db, Schedule schedule) =>
+app.MapPost("/schedule", async (OrcaDb db, Schedule schedule) =>
 {
     await db.Schedules.AddAsync(schedule);
     await db.SaveChangesAsync();
